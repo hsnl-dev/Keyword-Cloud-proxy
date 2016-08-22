@@ -2,7 +2,7 @@ require 'json'
 
 class ProxyServer < Sinatra::Base
   get '/api/v1/app/account/:account' do
-    protected!
+    # protected!
     content_type 'application/json'
     begin
       account = params[:account]
@@ -16,7 +16,7 @@ class ProxyServer < Sinatra::Base
   end
 
   get '/api/v1/app/course/:uid' do
-    protected!
+    # protected!
     content_type 'application/json'
     begin
       uid = params[:uid]
@@ -30,7 +30,7 @@ class ProxyServer < Sinatra::Base
   end
 
   get '/api/v1/app/chapter/:course_id' do
-    protected!
+    # protected!
     content_type 'application/json'
     begin
       course_id = params[:course_id]
@@ -44,7 +44,7 @@ class ProxyServer < Sinatra::Base
   end
 
   get '/api/v1/app/url/:course_id/:chapter_id' do
-    protected!
+    # protected!
     content_type 'application/json'
     begin
       course_id = params[:course_id]
