@@ -57,4 +57,17 @@ class ProxyServer < Sinatra::Base
       halt 404
     end
   end
+
+  get '/api/v1/app/chapvideo/:course_id' do
+    # protected!
+    content_type 'application/json'
+    begin
+      course_id = params[:course_id]
+      result = SqlChapvideo.call(course_id: course_id)
+      JSON.pretty_generate(data: result)
+    rescue => e
+      logger.info "FAILED to find video urls for course: #{e}"
+      halt 404
+    end
+  end
 end
